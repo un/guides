@@ -24,8 +24,8 @@
   useSeoMeta({
     titleTemplate: `%s - ${seo?.siteName}`,
     ogSiteName: seo?.siteName,
-    ogImage: 'https://docs-template.nuxt.dev/social-card.png',
-    twitterImage: 'https://docs-template.nuxt.dev/social-card.png',
+    ogImage: '',
+    twitterImage: '',
     twitterCard: 'summary_large_image'
   });
 
