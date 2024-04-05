@@ -15,8 +15,8 @@ export default defineAppConfig({
   header: {
     logo: {
       alt: 'Un',
-      light: '',
-      dark: ''
+      light: '/un-256.png',
+      dark: '/un-256.png'
     },
     search: true,
     colorMode: true,
