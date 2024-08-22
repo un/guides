@@ -1,0 +1,59 @@
+---
+title: Using your own domain with Uninbox
+description: How to receive and send email with your own domain.
+---
+
+Using your own domain with Uninbox allows you to create unlimited email addresses for sending and receiving emails. This guide will walk you through the setup process.
+
+## Prerequisites
+
+- **Admin access** to your Uninbox organization (if you just created an org, that's you!)
+- **A domain name** registered with a domain registrar (e.g., Namecheap, Porkbun, Cloudflare). If you don't know how here are some guides for some popular providers: [Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-set-up-a-domain-with-uninbox/), [Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/), [Porkbun](https://kb.porkbun.com/article/231-how-to-add-dns-records-on-porkbun#:~:text=To%20add%20DNS%20records%2C%20you,add%20the%20DNS%20records%20to.&text=Alternatively%2C%20you%20can%20expand%20the,'Manage%20DNS%20Records'%20window.)
+  , [Porkbun](https://kb.porkbun.com/article/231-how-to-add-dns-records-on-porkbun#:~:text=To%20add%20DNS%20records%2C%20you,add%20the%20DNS%20records%20to.&text=Alternatively%2C%20you%20can%20expand%20the,'Manage%20DNS%20Records'%20window.)
+
+## Setup Steps
+
+
+### Going to the domain setup page
+
+1. Select the organization you want to add the domain to, by clicking on the organization name in the _top left_ (if you only have one organization, this step is not necessary).
+2. Now in the same menu, select **Settings**
+3. Click on **Domains**, then click on the _top right_ on **New domain**
+4. Enter the domain name you want to send emails from then click **Add domain**
+
+### Adding the DNS records to your domain provider
+
+*Note: These steps vary a bit from one DNS provider to another, but the overall process is the same.*
+
+1. Copy all the following DNS records provided by Uninbox to your DNS provider (all the details will be provided in the app):
+
+- **Verification TXT**: Verifies domain ownership
+- **MX Record**: Routes incoming email to Uninbox servers
+- **DKIM Record**: Ensures email authenticity
+- **SPF Record**: Authorizes Uninbox to send email on your behalf
+- **Return Path CNAME**: Enhances email delivery reliability
+- **DMARC Record**: Choose based on your email setup:
+  - If you only send email via Uninbox:
+    ```
+    Type: TXT
+    Name: _dmarc
+    Value: v=DMARC1; p=reject;
+    ```
+  - If you send mail from other services that don't enforce DMARC:
+    ```
+    Type: TXT
+    Name: _dmarc
+    Value: v=DMARC1; p=quarantine;
+    ```
+
+2. Wait for the changes to propagate (up to 24 hours, but often within a few minutes).
+3. Uninbox will periodically verify your DNS settings. Check the status and last verification time for each record.
+
+
+## Troubleshooting
+
+- There's a small load icon to force a reload of the DNS record although these are usually updated automatically.
+- If you encounter a "We have detected an error with your DNS settings" message, review and correct your DNS entries.
+- Ensure there are no conflicting records, particularly for MX and SPF.
+
+Once all records are verified, your domain will be active for incoming and outgoing mail. Check the "Mail" section to confirm that Incoming and Outgoing are enabled.
