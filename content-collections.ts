@@ -22,5 +22,6 @@ const metas = defineCollection({
 });
 
 export default defineConfig({
+  // @ts-ignore
   collections: [docs, metas],
 });
