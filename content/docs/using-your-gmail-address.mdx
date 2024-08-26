@@ -1,0 +1,54 @@
+---
+title: Using your existing gmail address with UnInbox
+description: How to use your existing gmail address with UnInbox to send and receive emails.
+---
+
+If you already have a Gmail address, you can set it up on UnInbox to send and receive emails. This guide will walk you through the setup process.
+
+## Prerequisites
+
+- **Admin access** to your UnInbox organization (if you just created an org, that's you!)
+- **A Gmail address** that you want to use with UnInbox
+
+## Setup Steps
+
+## Setting up an App Password on Gmail
+
+1. Go to [Security > App Passwords](https://myaccount.google.com/apppasswords) on your Google account. Make sure you're logged in with the Gmail address you want to use.
+2. Add a New App with any name you like preferably "UnInbox". Click on **Create**.
+3. Copy the generated password. You'll need this password to set up your Gmail address on UnInbox.
+
+_Note: The password would be 16 characters long, if there are spaces in the password, remove them._
+
+### Setting up the Address on UnInbox as an External Address
+
+1. Select the organization you want to add the address to, by clicking on the organization name in the _top left_ (if you only have one organization, this step is not necessary).
+2. Now in the same menu, select **Settings**
+3. Click on **Email Addresses**, then click on **Add New**
+4. Select **External Address**
+5. Fill in the Fields:
+   - **Email Address**: Your Gmail address
+   - **Display Name**: Your name
+   - **SMTP Server**: `smtp.gmail.com`
+   - **SMTP Port**: `587`
+   - **SMTP Username**: Your Gmail address
+   - **SMTP Password**: The app password you generated without any spaces
+   - **Encryption**: STARTTLS
+   - **Auth Method**: Plain
+6. Select one or more spaces to assign the address to.
+7. If you have selected spaces where other users are present, you can choose to share the address with them with the **Allow everyone in the space to send from this address** switch. You probably want to turn this off if you are using your personal gmail.
+8. Click **Add External Email**
+
+This will verify the info you entered and add the address to your organization. If it fails, double check everything and try again. You can also reach out to support if you need help.
+
+### Forwarding Emails to UnInbox
+
+1. In the Email Addresses section, click on the address you just added.
+2. Under **Forwarding Address**, copy the provided email address. It should look like `<some_id>@fwd.uninbox.com`.
+3. Go to [Forwarding and POP/IMAP settings](https://mail.google.com/mail/u/0/#settings/fwdandpop) on your Gmail account. Make sure you're logged in with the Gmail address you want to use.
+4. Click on **Add Forwarding address** and paste the address you copied.
+5. Press Next and then Proceed.
+6. You'll receive a confirmation email on UnInbox. When you get that email click on the Link and confirm.
+7. After you have confirmed, refresh the gmail settings page and you should see a Option **Forward a copy of incoming mail to**. Select the address you just added and click on **Save Changes**.
+
+Now all emails sent to your Gmail address will be forwarded to UnInbox. You can also reply to emails from your Gmail address using UnInbox.
