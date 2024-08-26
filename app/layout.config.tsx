@@ -5,7 +5,7 @@ import { pageTree } from '@/app/source';
 // shared configuration
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: 'Uninbox Guides',
+    title: 'UnInbox Guides',
   },
   links: [
     {

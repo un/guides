@@ -1,18 +1,17 @@
 ---
-title: Using your own domain with Uninbox
+title: Using your own domain with UnInbox
 description: How to receive and send email with your own domain.
 ---
 
-Using your own domain with Uninbox allows you to create unlimited email addresses for sending and receiving emails. This guide will walk you through the setup process.
+Using your own domain with UnInbox allows you to create unlimited email addresses for sending and receiving emails. This guide will walk you through the setup process.
 
 ## Prerequisites
 
-- **Admin access** to your Uninbox organization (if you just created an org, that's you!)
-- **A domain name** registered with a domain registrar (e.g., Namecheap, Porkbun, Cloudflare). If you don't know how here are some guides for some popular providers: [Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-set-up-a-domain-with-uninbox/), [Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/), [Porkbun](https://kb.porkbun.com/article/231-how-to-add-dns-records-on-porkbun#:~:text=To%20add%20DNS%20records%2C%20you,add%20the%20DNS%20records%20to.&text=Alternatively%2C%20you%20can%20expand%20the,'Manage%20DNS%20Records'%20window.)
+- **Admin access** to your UnInbox organization (if you just created an org, that's you!)
+- **A domain name** registered with a domain registrar (e.g., Namecheap, Porkbun, Cloudflare). If you don't know how here are some guides for some popular providers: [Namecheap](https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-set-up-a-domain-with-UnInbox/), [Cloudflare](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records/), [Porkbun](https://kb.porkbun.com/article/231-how-to-add-dns-records-on-porkbun#:~:text=To%20add%20DNS%20records%2C%20you,add%20the%20DNS%20records%20to.&text=Alternatively%2C%20you%20can%20expand%20the,'Manage%20DNS%20Records'%20window.)
   , [Porkbun](https://kb.porkbun.com/article/231-how-to-add-dns-records-on-porkbun#:~:text=To%20add%20DNS%20records%2C%20you,add%20the%20DNS%20records%20to.&text=Alternatively%2C%20you%20can%20expand%20the,'Manage%20DNS%20Records'%20window.)
 
 ## Setup Steps
-
 
 ### Going to the domain setup page
 
@@ -23,17 +22,17 @@ Using your own domain with Uninbox allows you to create unlimited email addresse
 
 ### Adding the DNS records to your domain provider
 
-*Note: These steps vary a bit from one DNS provider to another, but the overall process is the same.*
+_Note: These steps vary a bit from one DNS provider to another, but the overall process is the same._
 
-1. Copy all the following DNS records provided by Uninbox to your DNS provider (all the details will be provided in the app):
+1. Copy all the following DNS records provided by UnInbox to your DNS provider (all the details will be provided in the app):
 
 - **Verification TXT**: Verifies domain ownership
-- **MX Record**: Routes incoming email to Uninbox servers
+- **MX Record**: Routes incoming email to UnInbox servers
 - **DKIM Record**: Ensures email authenticity
-- **SPF Record**: Authorizes Uninbox to send email on your behalf
+- **SPF Record**: Authorizes UnInbox to send email on your behalf
 - **Return Path CNAME**: Enhances email delivery reliability
 - **DMARC Record**: Choose based on your email setup:
-  - If you only send email via Uninbox:
+  - If you only send email via UnInbox:
     ```
     Type: TXT
     Name: _dmarc
@@ -47,8 +46,7 @@ Using your own domain with Uninbox allows you to create unlimited email addresse
     ```
 
 2. Wait for the changes to propagate (up to 24 hours, but often within a few minutes).
-3. Uninbox will periodically verify your DNS settings. Check the status and last verification time for each record.
-
+3. UnInbox will periodically verify your DNS settings. Check the status and last verification time for each record.
 
 ## Troubleshooting
 
